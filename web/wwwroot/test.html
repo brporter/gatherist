@@ -1,0 +1,166 @@
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-left: 20px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .nav {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .nav li {
+            margin: 0 10px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 80px;
+        }
+
+        .left {
+            width: 20%;
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .right {
+            width: 80%;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin-left: auto;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 100%;
+            height: 5px;
+            background-color: black;
+            margin: 6px 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                background-color: #f0f0f0;
+                width: 200px;
+            }
+
+            .nav li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            /* This is the checkbox that controls the menu visibility */
+            .toggle {
+                display: none;
+            }
+
+            /* This is the label for the checkbox that looks like a hamburger button */
+            .toggle-label {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 40px;
+                margin-left: auto;
+                margin-right: 20px;
+                cursor: pointer;
+            }
+
+            /* This is the style for the checkbox when it is checked */
+            .toggle:checked + .toggle-label .bar:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+
+            .toggle:checked + .toggle-label .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .toggle:checked + .toggle-label .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -9px);
+            }
+
+            /* This is the style for the nav menu when the checkbox is checked */
+            .toggle:checked ~ .nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="title">My Website</div>
+    <!-- This is the checkbox that controls the menu visibility -->
+    <input type="checkbox" id="toggle" class="toggle">
+    <!-- This is the label for the checkbox that looks like a hamburger button -->
+    <label for="toggle" class="toggle-label">
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </label>
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="left">
+        <p>This is the left column.</p>
+    </div>
+    <div class="right">
+        <p>This is the right column.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@model CategoryTreeModel
+
+<nav class="nav flex-column">
+    @if (Model.Root != null && Model.Root.ParentCategoryId != null)
+    {
+        <a class="nav-link" href="/@Model.Root.ParentCategoryId"> &lt; Back </a>
+    }
+    
+    @if (Model.Root != null && Model.Root.ParentCategoryId == null)
+    {
+        <a class="nav-link" href="/"> &lt; Back </a>
+    }
+
+    @if (Model.Categories != null)
+    {
+        @foreach (var category in Model.Categories)
+        {
+            <a class="nav-link" href="/@category.CategoryId">@category.Name</a>
+        }
+    }
+</nav>
