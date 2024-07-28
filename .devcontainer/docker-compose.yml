@@ -2,6 +2,7 @@ version: '3'
 
 services:
   app:
+    container_name: gatherist-app
     build: 
       context: .
       dockerfile: Dockerfile
@@ -21,11 +22,13 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
   cache:
+    container_name: gatherist-cache
     image: redis
     ports:
       - 6379:6379
 
   db:
+    container_name: gatherist-db
     platform: linux/amd64
     image: mcr.microsoft.com/mssql/server:latest
     restart: unless-stopped
